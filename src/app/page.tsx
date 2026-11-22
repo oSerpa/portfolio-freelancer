@@ -1,7 +1,12 @@
 import { site, linkWhatsApp } from "@/data/site";
+import Servicos from "@/components/Servicos";
+import Modelos from "@/components/Modelos";
+import Linguagens from "@/components/Linguagens";
+import Contato from "@/components/Contato";
 
 export default function Home() {
   return (
+    <>
     <section id="inicio" className="mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center px-4 py-20">
       <p className="mb-4 text-sm font-medium uppercase tracking-widest text-destaque">Desenvolvedor freelancer</p>
       <h1 className="font-display max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
@@ -22,5 +27,10 @@ export default function Home() {
         </a>
       </div>
     </section>
+    <Servicos />
+    <Modelos />
+    <Linguagens />
+    <Contato />
+    </>
   );
 }
