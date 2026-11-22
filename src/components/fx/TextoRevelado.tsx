@@ -15,7 +15,7 @@ export default function TextoRevelado({ linhas, className, atraso = 0, comoTitul
           {l.texto.split(" ").map((p, pi) => {
             const ordem = i++;
             return (
-              <span key={pi} className="inline-block overflow-hidden pb-[0.08em] align-bottom">
+              <span key={pi} className="-mb-[0.18em] inline-block overflow-hidden pb-[0.18em] align-bottom">
                 <motion.span
                   className={`inline-block ${l.className ?? ""}`}
                   variants={{ oculto: { y: "110%" }, visivel: { y: 0 } }}

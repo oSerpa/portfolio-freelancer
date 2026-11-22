@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${bricolage.variable} ${geist.variable} ${jetbrains.variable} antialiased`}>{children}</body>
+    <html lang="pt-BR" className={`${bricolage.variable} ${geist.variable} ${jetbrains.variable}`}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
