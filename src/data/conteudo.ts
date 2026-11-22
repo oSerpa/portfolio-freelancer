@@ -47,15 +47,96 @@ export const modelos: Record<Categoria, Modelo[]> = {
   ],
 };
 
-export const linguagens = [
-  { nome: "HTML e CSS", uso: "Base de qualquer página, leve e rápida." },
-  { nome: "JavaScript", uso: "Interatividade e animações no navegador." },
-  { nome: "TypeScript", uso: "JavaScript com tipos, menos erro em projeto grande." },
-  { nome: "React", uso: "Interfaces modernas e componentizadas." },
-  { nome: "Next.js", uso: "Sites rápidos e bem ranqueados no Google." },
-  { nome: "Tailwind CSS", uso: "Visual consistente e responsivo." },
-  { nome: "Node.js", uso: "APIs e integrações no servidor." },
-  { nome: "PHP", uso: "Sites em hospedagem compartilhada e WordPress." },
-  { nome: "React Native", uso: "Apps para Android e iOS com um só código." },
-  { nome: "SQL", uso: "Bancos de dados como MySQL e PostgreSQL." },
+export type Linguagem = {
+  nome: string;
+  uso: string;
+  tipo: string; // categoria curta: Front-end, Back-end, Mobile...
+  descricao: string;
+  quando: string[]; // quando faz sentido usar
+  vantagens: string[];
+  projetos: string[]; // tipos de projeto em que entra
+  exemplo: string; // trecho curto de código
+};
+
+export const linguagens: Linguagem[] = [
+  {
+    nome: "HTML e CSS", uso: "Base de qualquer página, leve e rápida.", tipo: "Front-end",
+    descricao: "HTML define a estrutura da página e CSS cuida do visual. Toda página da web usa os dois, e sozinhos já resolvem sites simples com ótimo desempenho.",
+    quando: ["Landing pages estáticas", "Sites de uma página", "Quando o orçamento é enxuto"],
+    vantagens: ["Carrega muito rápido", "Hospedagem barata ou grátis", "Fácil de manter"],
+    projetos: ["Landing Pages", "Sites"],
+    exemplo: `<section class="hero">\n  <h1>Seu negócio aqui</h1>\n  <a href="#contato">Fale comigo</a>\n</section>`,
+  },
+  {
+    nome: "JavaScript", uso: "Interatividade e animações no navegador.", tipo: "Front-end",
+    descricao: "A linguagem que dá vida à página: menus, carrosséis, formulários que validam na hora, animações e qualquer coisa que reage ao clique do usuário.",
+    quando: ["Formulários com validação", "Animações e efeitos", "Integração com APIs"],
+    vantagens: ["Roda em qualquer navegador", "Ecossistema enorme", "Serve no front e no back"],
+    projetos: ["Landing Pages", "Sites", "Apps"],
+    exemplo: `botao.addEventListener("click", () => {\n  menu.classList.toggle("aberto");\n});`,
+  },
+  {
+    nome: "TypeScript", uso: "JavaScript com tipos, menos erro em projeto grande.", tipo: "Front-end e Back-end",
+    descricao: "É JavaScript com tipagem. O editor avisa os erros antes do código ir para o ar, o que deixa projetos maiores mais seguros e fáceis de evoluir.",
+    quando: ["Sistemas e painéis", "Projetos que vão crescer", "Código mantido por mais de uma pessoa"],
+    vantagens: ["Menos bugs em produção", "Autocompletar no editor", "Refatorar sem medo"],
+    projetos: ["Sites", "Apps"],
+    exemplo: `type Pedido = { id: number; total: number };\n\nfunction somar(p: Pedido[]) {\n  return p.reduce((s, x) => s + x.total, 0);\n}`,
+  },
+  {
+    nome: "React", uso: "Interfaces modernas e componentizadas.", tipo: "Front-end",
+    descricao: "Biblioteca para montar interfaces em componentes reutilizáveis. É o padrão de mercado para telas com muita interação, como painéis e aplicativos web.",
+    quando: ["Apps web com muitas telas", "Painéis administrativos", "Interfaces que mudam em tempo real"],
+    vantagens: ["Componentes reaproveitáveis", "Comunidade gigante", "Fácil achar quem dê manutenção"],
+    projetos: ["Sites", "Apps"],
+    exemplo: `function Contador() {\n  const [n, setN] = useState(0);\n  return <button onClick={() => setN(n + 1)}>{n}</button>;\n}`,
+  },
+  {
+    nome: "Next.js", uso: "Sites rápidos e bem ranqueados no Google.", tipo: "Full-stack",
+    descricao: "Framework em cima do React que entrega páginas já prontas para o Google ler, com rotas, imagens otimizadas e API no mesmo projeto. Este site é feito com ele.",
+    quando: ["Sites que precisam aparecer no Google", "Landing pages com formulário", "Projetos com área logada"],
+    vantagens: ["Ótimo para SEO", "Muito rápido", "Front e back no mesmo lugar"],
+    projetos: ["Landing Pages", "Sites", "Apps"],
+    exemplo: `export default async function Pagina() {\n  const posts = await buscarPosts();\n  return <Lista itens={posts} />;\n}`,
+  },
+  {
+    nome: "Tailwind CSS", uso: "Visual consistente e responsivo.", tipo: "Front-end",
+    descricao: "Forma de escrever CSS com classes prontas direto no HTML. Acelera o desenvolvimento e mantém espaçamentos, cores e tamanhos padronizados no projeto todo.",
+    quando: ["Qualquer projeto com design próprio", "Layouts responsivos", "Sistemas de design"],
+    vantagens: ["Desenvolvimento rápido", "CSS final pequeno", "Visual consistente"],
+    projetos: ["Landing Pages", "Sites", "Apps"],
+    exemplo: `<button class="rounded bg-orange-500 px-6 py-3\n  font-semibold hover:bg-orange-600">\n  Comprar\n</button>`,
+  },
+  {
+    nome: "Node.js", uso: "APIs e integrações no servidor.", tipo: "Back-end",
+    descricao: "Permite rodar JavaScript no servidor. Uso para criar APIs, enviar e-mails, integrar com pagamentos, WhatsApp e outros serviços.",
+    quando: ["APIs para apps", "Integrações com pagamento", "Automação e envio de e-mails"],
+    vantagens: ["Mesma linguagem do front", "Rápido para tempo real", "Muitas bibliotecas prontas"],
+    projetos: ["Apps", "Sites"],
+    exemplo: `app.post("/pedidos", async (req, res) => {\n  const pedido = await salvar(req.body);\n  res.status(201).json(pedido);\n});`,
+  },
+  {
+    nome: "PHP", uso: "Sites em hospedagem compartilhada e WordPress.", tipo: "Back-end",
+    descricao: "Linguagem de servidor por trás do WordPress e de boa parte da web. Roda em praticamente qualquer hospedagem, inclusive as mais baratas.",
+    quando: ["Sites em WordPress", "Hospedagem compartilhada", "Sistemas que já usam PHP"],
+    vantagens: ["Hospedagem barata", "Muito difundido", "Integra fácil com MySQL"],
+    projetos: ["Sites"],
+    exemplo: `<?php\n$produtos = $pdo->query("SELECT * FROM produtos")->fetchAll();\nforeach ($produtos as $p) echo "<li>{$p['nome']}</li>";`,
+  },
+  {
+    nome: "React Native", uso: "Apps para Android e iOS com um só código.", tipo: "Mobile",
+    descricao: "Cria aplicativos nativos para Android e iPhone a partir do mesmo código, usando React. Sai mais barato do que fazer dois apps separados.",
+    quando: ["App publicado nas lojas", "Uso de câmera, GPS ou notificações", "Mesmo app em Android e iOS"],
+    vantagens: ["Um código, duas plataformas", "Desempenho de app nativo", "Atualizações mais rápidas"],
+    projetos: ["Apps"],
+    exemplo: `export default function Inicio() {\n  return (\n    <View><Text>Olá, cliente!</Text></View>\n  );\n}`,
+  },
+  {
+    nome: "SQL", uso: "Bancos de dados como MySQL e PostgreSQL.", tipo: "Banco de dados",
+    descricao: "Linguagem para guardar e consultar dados: clientes, pedidos, agendamentos. Uso principalmente PostgreSQL e MySQL, conforme a hospedagem do projeto.",
+    quando: ["Cadastro de clientes e pedidos", "Agendamentos", "Relatórios e painéis"],
+    vantagens: ["Dados organizados e seguros", "Consultas rápidas", "Padrão em todo o mercado"],
+    projetos: ["Sites", "Apps"],
+    exemplo: `SELECT cliente, SUM(total) AS gasto\nFROM pedidos\nGROUP BY cliente\nORDER BY gasto DESC;`,
+  },
 ];

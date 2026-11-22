@@ -6,7 +6,7 @@ import { linguagens } from "@/data/conteudo";
 
 // Duas faixas que andam em sentidos opostos conforme a rolagem.
 export default function FaixaTecnologias() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLAnchorElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const x1 = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
   const x2 = useTransform(scrollYProgress, [0, 1], ["-25%", "0%"]);
@@ -14,7 +14,8 @@ export default function FaixaTecnologias() {
   const linha = [...nomes, ...nomes, ...nomes];
 
   return (
-    <div ref={ref} className="overflow-hidden border-y border-linha py-6" aria-label="Tecnologias que uso">
+    <a href="#linguagens" ref={ref} className="group relative block overflow-hidden border-y border-linha pb-6 pt-12" aria-label="Ver todas as linguagens com detalhes">
+      <span className="rotulo absolute right-5 top-2 z-10 bg-tinta px-2 py-1 text-cinza transition-colors group-hover:text-brasa md:right-8">Ver todas com detalhes ↓</span>
       <motion.div style={{ x: x1 }} className="font-display flex whitespace-nowrap text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-none">
         {linha.map((n, i) => (
           <span key={i} className="flex items-center">
@@ -28,6 +29,6 @@ export default function FaixaTecnologias() {
           <span key={i} className="mx-6">{linguagens[i % linguagens.length].uso}</span>
         ))}
       </motion.div>
-    </div>
+    </a>
   );
 }
