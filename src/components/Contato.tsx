@@ -1,4 +1,5 @@
 import Titulo from "./Titulo";
+import FormOrcamento from "./FormOrcamento";
 import { site, linkWhatsApp } from "@/data/site";
 
 const canais = [
@@ -10,8 +11,9 @@ const canais = [
 export default function Contato() {
   return (
     <section id="orcamento" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-20">
-      <Titulo rotulo="Orçamento" titulo="Vamos tirar sua ideia do papel" texto="Me chame pelo canal que preferir. O formulário de orçamento entra aqui na próxima etapa." />
-      <div className="grid gap-4 md:grid-cols-3">
+      <Titulo rotulo="Orçamento" titulo="Vamos tirar sua ideia do papel" texto="Preencha o formulário e receba uma proposta, ou me chame direto pelo canal que preferir." />
+      <FormOrcamento />
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
         {canais.map((c) => (
           <a
             key={c.nome}
