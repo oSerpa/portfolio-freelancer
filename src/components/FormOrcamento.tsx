@@ -68,7 +68,7 @@ export default function FormOrcamento() {
       {estado === "enviado" ? (
         <motion.div key="ok" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} className="border border-brasa p-10">
           <p className="font-display text-4xl font-semibold">Pedido recebido.</p>
-          <p className="mt-4 max-w-md text-papel/70">Seu orçamento chegou no meu e-mail e respondo em até 1 dia útil. Se quiser agilizar, mande o resumo também pelo WhatsApp.</p>
+          <p className="mt-4 max-w-md text-papel/70">Seu orçamento chegou no meu e-mail. Mande o resumo pelo WhatsApp que eu respondo no mesmo instante.</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href={whats} target="_blank" rel="noopener noreferrer" className="bg-brasa px-6 py-3 font-semibold text-tinta">Enviar pelo WhatsApp</a>
             <button onClick={() => { setDados(vazio); setEstado("editando"); }} className="border border-linha px-6 py-3 font-semibold hover:border-papel">Novo pedido</button>
@@ -111,7 +111,7 @@ export default function FormOrcamento() {
               <span className="absolute inset-0 -translate-x-full bg-papel transition-transform duration-500 group-hover:translate-x-0" />
               <span className="relative">{estado === "enviando" ? "Enviando..." : "Pedir orçamento →"}</span>
             </button>
-            <span className="rotulo text-cinza">Respondo em até 1 dia útil</span>
+            <span className="rotulo text-cinza">Respondo no WhatsApp no mesmo instante</span>
           </div>
         </motion.form>
       )}
