@@ -17,11 +17,11 @@ const exemplos: { arquivo: string; tokens: Token[] }[] = [
     ],
   },
   {
-    arquivo: "Preco.tsx",
+    arquivo: "Avaliacao.tsx",
     tokens: [
-      [c, "// cartão de plano com destaque\n"],
-      [k, "const "], [p, "plano = { nome: "], [s, '"Pro"'], [p, ", valor: "], [s, "97"], [p, " };\n\n"],
-      [k, "return "], [p, "<"], [t, "Cartao"], [p, " destaque>\n  {plano.nome} R$ {plano.valor}\n</"], [t, "Cartao"], [p, ">"],
+      [c, "// estrelas que reagem ao mouse\n"],
+      [k, "const "], [p, "[nota, setNota] = "], [t, "useState"], [p, "("], [s, "4"], [p, ");\n\n"],
+      [k, "return "], [p, "["], [s, "1, 2, 3, 4, 5"], [p, "]."], [t, "map"], [p, "(n =>\n  <"], [t, "Estrela"], [p, " cheia={n <= nota}\n    onClick={() => "], [t, "setNota"], [p, "(n)} />\n)"],
     ],
   },
   {
@@ -35,6 +35,8 @@ const exemplos: { arquivo: string; tokens: Token[] }[] = [
 
 function Resultado({ i }: { i: number }) {
   const [hora, setHora] = useState("14:00");
+  const [nota, setNota] = useState(4);
+  const [hover, setHover] = useState(0);
   if (i === 0)
     return (
       <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative bg-brasa px-6 py-3 font-semibold text-tinta">
@@ -44,11 +46,23 @@ function Resultado({ i }: { i: number }) {
     );
   if (i === 1)
     return (
-      <div className="w-44 border border-brasa bg-tinta p-4">
-        <div className="rotulo text-brasa">Mais escolhido</div>
-        <div className="font-display mt-1 text-xl">Pro</div>
-        <div className="text-2xl font-bold">R$ 97<span className="text-sm font-normal text-cinza">/mês</span></div>
-        <div className="mt-3 bg-papel py-2 text-center text-sm font-semibold text-tinta">Assinar</div>
+      <div className="text-center">
+        <div className="flex gap-1" onMouseLeave={() => setHover(0)}>
+          {[1, 2, 3, 4, 5].map((n) => (
+            <motion.button
+              key={n}
+              whileHover={{ scale: 1.25, rotate: -8 }}
+              whileTap={{ scale: 0.9 }}
+              onMouseEnter={() => setHover(n)}
+              onClick={() => setNota(n)}
+              aria-label={`${n} estrelas`}
+              className={`text-3xl transition-colors ${n <= (hover || nota) ? "text-brasa" : "text-linha"}`}
+            >
+              ★
+            </motion.button>
+          ))}
+        </div>
+        <p className="rotulo mt-3 text-cinza">{["", "Ruim", "Regular", "Bom", "Muito bom", "Excelente"][hover || nota]}</p>
       </div>
     );
   return (
