@@ -33,7 +33,6 @@ export async function POST(req: Request) {
     ["E-mail", o.email],
     ["WhatsApp", o.whatsapp || "não informado"],
     ["Tipo de projeto", o.tipo],
-    ["Orçamento", o.faixa || "não informado"],
     ["Prazo", o.prazo || "não informado"],
   ];
 

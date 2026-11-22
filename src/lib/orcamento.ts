@@ -1,7 +1,6 @@
 // Tipos e regras do formulário de orçamento, usados no navegador e no servidor.
 
 export const tiposProjeto = ["Landing Page", "Site", "App", "Outro"] as const;
-export const faixasOrcamento = ["Até R$ 1.000", "R$ 1.000 a R$ 3.000", "R$ 3.000 a R$ 7.000", "Acima de R$ 7.000", "Ainda não sei"] as const;
 export const prazos = ["Urgente (até 2 semanas)", "Em até 1 mês", "Em até 3 meses", "Sem pressa"] as const;
 
 export type Orcamento = {
@@ -9,7 +8,6 @@ export type Orcamento = {
   email: string;
   whatsapp: string;
   tipo: string;
-  faixa: string;
   prazo: string;
   descricao: string;
 };
@@ -32,7 +30,6 @@ export function resumoTexto(o: Orcamento) {
     `E-mail: ${o.email}`,
     o.whatsapp ? `WhatsApp: ${o.whatsapp}` : null,
     `Tipo: ${o.tipo}`,
-    o.faixa ? `Orçamento: ${o.faixa}` : null,
     o.prazo ? `Prazo: ${o.prazo}` : null,
     ``,
     o.descricao,

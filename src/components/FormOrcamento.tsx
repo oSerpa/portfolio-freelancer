@@ -3,9 +3,9 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { linkWhatsApp } from "@/data/site";
-import { tiposProjeto, faixasOrcamento, prazos, validar, resumoTexto, type Orcamento } from "@/lib/orcamento";
+import { tiposProjeto, prazos, validar, resumoTexto, type Orcamento } from "@/lib/orcamento";
 
-const vazio: Orcamento = { nome: "", email: "", whatsapp: "", tipo: "", faixa: "", prazo: "", descricao: "" };
+const vazio: Orcamento = { nome: "", email: "", whatsapp: "", tipo: "", prazo: "", descricao: "" };
 type Estado = "editando" | "enviando" | "enviado" | "falhou";
 
 function Chips({ opcoes, valor, aoEscolher, rotulo }: { opcoes: readonly string[]; valor: string; aoEscolher: (v: string) => void; rotulo: string }) {
@@ -90,8 +90,7 @@ export default function FormOrcamento() {
             <label htmlFor="whatsapp" className={flutua}>WhatsApp (opcional)</label>
           </div>
           <div className="md:col-span-2"><Chips rotulo="O que você precisa? *" opcoes={tiposProjeto} valor={dados.tipo} aoEscolher={(v) => set("tipo", v)} /></div>
-          <Chips rotulo="Investimento" opcoes={faixasOrcamento} valor={dados.faixa} aoEscolher={(v) => set("faixa", v)} />
-          <Chips rotulo="Prazo" opcoes={prazos} valor={dados.prazo} aoEscolher={(v) => set("prazo", v)} />
+          <div className="md:col-span-2"><Chips rotulo="Prazo" opcoes={prazos} valor={dados.prazo} aoEscolher={(v) => set("prazo", v)} /></div>
           <div className="relative md:col-span-2">
             <textarea id="descricao" rows={4} maxLength={3000} placeholder="Conte sobre o projeto" value={dados.descricao} onChange={mudar("descricao")} className={`${campo} resize-none`} />
             <label htmlFor="descricao" className={flutua}>Conte sobre o projeto *</label>
