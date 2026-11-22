@@ -1,6 +1,7 @@
 import TextoRevelado from "./fx/TextoRevelado";
 import FormOrcamento from "./FormOrcamento";
 import { site, linkWhatsApp } from "@/data/site";
+import RotuloSecao from "./RotuloSecao";
 
 const canais = [
   { nome: "WhatsApp", valor: site.whatsappExibicao, href: linkWhatsApp(), externo: true },
@@ -11,7 +12,7 @@ const canais = [
 export default function Contato() {
   return (
     <section id="orcamento" className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-36">
-      <p className="rotulo text-cinza">(06) Orçamento</p>
+      <RotuloSecao numero="06" nome="Orçamento" />
       <TextoRevelado
         className="font-display mt-6 text-[clamp(3rem,10vw,9rem)] font-semibold leading-[0.9] tracking-[-0.035em]"
         linhas={[{ texto: "Vamos" }, { texto: "conversar?", className: "text-brasa" }]}

@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, animate, useMotionValue, useTransform } from "motion/react";
 import { useEffect, useState } from "react";
 import TextoRevelado from "./fx/TextoRevelado";
+import RotuloSecao from "./RotuloSecao";
 
 const abas = ["Responsivo", "Personalize", "Microinterações"] as const;
 type Aba = (typeof abas)[number];
@@ -198,7 +199,7 @@ export default function Laboratorio() {
     <section id="laboratorio" className="border-y border-linha bg-tinta-2/40">
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-36">
         <div className="grid gap-8 md:grid-cols-[1fr_2fr]">
-          <p className="rotulo text-cinza">(03) Laboratório</p>
+          <RotuloSecao numero="03" nome="Laboratório" />
           <div>
             <TextoRevelado className="font-display text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[0.95] tracking-tight" linhas={[{ texto: "Mexa à vontade." }, { texto: "Isso aqui é código.", className: "text-brasa" }]} />
             <p className="mt-6 max-w-xl text-papel/65">Uma amostra do que dá para colocar no seu projeto: layouts que se adaptam a qualquer tela, identidade visual configurável e animações que respondem ao usuário.</p>

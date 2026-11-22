@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import TextoRevelado from "./fx/TextoRevelado";
 import PreviaAoVivo from "./PreviaAoVivo";
 import { modelos, type Categoria } from "@/data/conteudo";
+import RotuloSecao from "./RotuloSecao";
 
 const categorias = Object.keys(modelos) as Categoria[];
 
@@ -27,7 +28,7 @@ export default function Modelos() {
     <section id="modelos" className="py-24 md:py-36">
       <div className="mx-auto max-w-[1400px] px-5 md:px-8">
         <div className="grid gap-8 md:grid-cols-[1fr_2fr]">
-          <p className="rotulo text-cinza">(02) Modelos</p>
+          <RotuloSecao numero="02" nome="Modelos" />
           <div>
             <TextoRevelado
               className="font-display text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[0.95] tracking-tight"

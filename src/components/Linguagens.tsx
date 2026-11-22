@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { linguagens } from "@/data/conteudo";
+import RotuloSecao from "./RotuloSecao";
 
 // Grade de linguagens. Clicar em qualquer uma abre um painel lateral com os detalhes.
 export default function Linguagens() {
@@ -27,7 +28,7 @@ export default function Linguagens() {
   return (
     <section id="linguagens" className="mx-auto max-w-[1400px] scroll-mt-20 px-5 py-24 md:px-8 md:py-32">
       <div className="grid gap-8 md:grid-cols-[1fr_2fr]">
-        <p className="rotulo text-cinza">(05) Linguagens</p>
+        <RotuloSecao numero="05" nome="Linguagens" />
         <div>
           <h2 className="font-display text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[0.95] tracking-tight">A ferramenta certa para cada projeto</h2>
           <p className="mt-6 max-w-xl text-papel/65">Escolho a tecnologia pensando em custo, velocidade e em quem vai cuidar do projeto depois. Clique em qualquer uma para ver quando uso, vantagens e um exemplo de código.</p>

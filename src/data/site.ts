@@ -21,5 +21,6 @@ export const navegacao = [
   { href: "#modelos", label: "Modelos" },
   { href: "#laboratorio", label: "Laboratório" },
   { href: "#processo", label: "Processo" },
+  { href: "#linguagens", label: "Linguagens" },
   { href: "#orcamento", label: "Orçamento" },
 ];

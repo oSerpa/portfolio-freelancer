@@ -5,6 +5,7 @@ import { useState } from "react";
 import TextoRevelado from "./fx/TextoRevelado";
 import Revelar from "./fx/Revelar";
 import { servicos } from "@/data/conteudo";
+import RotuloSecao from "./RotuloSecao";
 
 export default function Servicos() {
   const [aberto, setAberto] = useState<number | null>(0);
@@ -13,7 +14,7 @@ export default function Servicos() {
     <section id="servicos" className="bg-papel text-tinta">
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-36">
         <div className="grid gap-8 md:grid-cols-[1fr_2fr]">
-          <p className="rotulo text-tinta/60">(01) Serviços</p>
+          <RotuloSecao numero="01" nome="Serviços" claro />
           <TextoRevelado
             className="font-display text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[0.95] tracking-tight"
             linhas={[{ texto: "Do rascunho ao ar," }, { texto: "sem enrolação." }]}

@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import RotuloSecao from "./RotuloSecao";
 
 const etapas = [
   { t: "Conversa", d: "Entendo seu negócio, seu público e o que o projeto precisa resolver." },
@@ -35,7 +36,7 @@ export default function Processo() {
         <div className="mx-auto w-full max-w-[1400px] px-5 pt-24 md:px-8 md:pt-0">
           <div className="flex items-end justify-between gap-6">
             <div>
-              <p className="rotulo text-cinza">(04) Processo</p>
+              <RotuloSecao numero="04" nome="Processo" />
               <h2 className="font-display mt-4 text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[0.95] tracking-tight">Como trabalhamos</h2>
             </div>
             <div className="hidden h-px w-64 bg-linha md:block">
