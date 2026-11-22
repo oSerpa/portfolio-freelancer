@@ -44,11 +44,11 @@ function Resultado({ i }: { i: number }) {
     );
   if (i === 1)
     return (
-      <div className="w-48 border border-brasa bg-tinta p-5">
+      <div className="w-44 border border-brasa bg-tinta p-4">
         <div className="rotulo text-brasa">Mais escolhido</div>
-        <div className="font-display mt-2 text-2xl">Pro</div>
-        <div className="mt-1 text-3xl font-bold">R$ 97<span className="text-sm font-normal text-cinza">/mês</span></div>
-        <div className="mt-4 bg-papel py-2 text-center text-sm font-semibold text-tinta">Assinar</div>
+        <div className="font-display mt-1 text-xl">Pro</div>
+        <div className="text-2xl font-bold">R$ 97<span className="text-sm font-normal text-cinza">/mês</span></div>
+        <div className="mt-3 bg-papel py-2 text-center text-sm font-semibold text-tinta">Assinar</div>
       </div>
     );
   return (
@@ -97,8 +97,9 @@ export default function CodigoAoVivo() {
           })}
           {!pronto && <span className="animate-pisca text-brasa">▍</span>}
         </pre>
-        <div className="relative flex min-h-48 items-center justify-center bg-[radial-gradient(circle_at_center,rgba(255,77,28,.08),transparent_70%)] p-6">
-          <span className="rotulo absolute left-4 top-3 text-cinza/60">Resultado</span>
+        <div className="flex min-h-64 flex-col bg-[radial-gradient(circle_at_center,rgba(255,77,28,.08),transparent_70%)] p-4">
+          <span className="rotulo text-cinza/60">Resultado</span>
+          <div className="flex flex-1 items-center justify-center py-4">
           <AnimatePresence mode="wait">
             {pronto ? (
               <motion.div key={atual} initial={{ opacity: 0, scale: 0.9, filter: "blur(6px)" }} animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.5 }}>
@@ -108,6 +109,7 @@ export default function CodigoAoVivo() {
               <motion.span key="compilando" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="rotulo text-cinza/60">compilando...</motion.span>
             )}
           </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>
