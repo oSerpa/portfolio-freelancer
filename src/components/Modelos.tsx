@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef, useState } from "react";
 import Titulo from "./Titulo";
 import { modelos, type Categoria } from "@/data/conteudo";
@@ -62,7 +63,7 @@ export default function Modelos() {
                 ))}
               </div>
               {m.href ? (
-                <a href={m.href} className="mt-5 inline-block text-sm font-semibold text-destaque hover:underline">Ver demonstração →</a>
+                <Link href={m.href} className="mt-5 inline-block text-sm font-semibold text-destaque hover:underline">Ver demonstração →</Link>
               ) : (
                 <p className="mt-5 text-sm text-suave/70">Demonstração em breve</p>
               )}

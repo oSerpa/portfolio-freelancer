@@ -31,19 +31,19 @@ export type Modelo = {
 
 export const modelos: Record<Categoria, Modelo[]> = {
   "Landing Pages": [
-    { nome: "Lançamento de curso", segmento: "Educação", descricao: "Página de vendas com contagem regressiva, depoimentos e checkout.", tecnologias: ["Next.js", "Tailwind"], cor: "from-violet-500 to-fuchsia-500" },
-    { nome: "Clínica estética", segmento: "Saúde", descricao: "Captação de agendamentos direto pelo WhatsApp.", tecnologias: ["HTML", "CSS", "JavaScript"], cor: "from-rose-400 to-orange-300" },
-    { nome: "App de delivery", segmento: "Startup", descricao: "Apresentação de app com chamada para download nas lojas.", tecnologias: ["React", "Tailwind"], cor: "from-emerald-400 to-cyan-500" },
+    { nome: "Lançamento de curso", segmento: "Educação", descricao: "Página de vendas com contagem regressiva, depoimentos e checkout.", tecnologias: ["Next.js", "Tailwind"], cor: "from-violet-500 to-fuchsia-500", href: "/modelos/curso" },
+    { nome: "Clínica estética", segmento: "Saúde", descricao: "Captação de agendamentos direto pelo WhatsApp.", tecnologias: ["HTML", "CSS", "JavaScript"], cor: "from-rose-400 to-orange-300", href: "/modelos/clinica" },
+    { nome: "App de delivery", segmento: "Startup", descricao: "Apresentação de app com chamada para download nas lojas.", tecnologias: ["React", "Tailwind"], cor: "from-emerald-400 to-cyan-500", href: "/modelos/delivery" },
   ],
   Sites: [
-    { nome: "Escritório de advocacia", segmento: "Jurídico", descricao: "Site institucional com áreas de atuação, equipe e blog.", tecnologias: ["Next.js", "TypeScript"], cor: "from-slate-500 to-slate-800" },
-    { nome: "Restaurante", segmento: "Gastronomia", descricao: "Cardápio online, reservas e localização.", tecnologias: ["PHP", "MySQL"], cor: "from-amber-400 to-red-500" },
-    { nome: "Portfólio de fotógrafo", segmento: "Criativo", descricao: "Galeria de trabalhos com páginas por ensaio.", tecnologias: ["React", "Vite"], cor: "from-zinc-400 to-zinc-700" },
+    { nome: "Escritório de advocacia", segmento: "Jurídico", descricao: "Site institucional com áreas de atuação, equipe e blog.", tecnologias: ["Next.js", "TypeScript"], cor: "from-slate-500 to-slate-800", href: "/modelos/advocacia" },
+    { nome: "Restaurante", segmento: "Gastronomia", descricao: "Cardápio online, reservas e localização.", tecnologias: ["PHP", "MySQL"], cor: "from-amber-400 to-red-500", href: "/modelos/restaurante" },
+    { nome: "Portfólio de fotógrafo", segmento: "Criativo", descricao: "Galeria de trabalhos com páginas por ensaio.", tecnologias: ["React", "Vite"], cor: "from-zinc-400 to-zinc-700", href: "/modelos/fotografo" },
   ],
   Apps: [
-    { nome: "Agenda para barbearia", segmento: "Serviços", descricao: "Agendamento online com horários livres e lembretes.", tecnologias: ["Next.js", "PostgreSQL"], cor: "from-sky-400 to-indigo-600" },
-    { nome: "Controle financeiro", segmento: "Finanças", descricao: "Painel de receitas e despesas com gráficos.", tecnologias: ["React", "Node.js"], cor: "from-lime-400 to-green-600" },
-    { nome: "Lista de tarefas da equipe", segmento: "Produtividade", descricao: "Quadro de tarefas em colunas com arrastar e soltar.", tecnologias: ["React Native", "TypeScript"], cor: "from-yellow-300 to-orange-500" },
+    { nome: "Agenda para barbearia", segmento: "Serviços", descricao: "Agendamento online com horários livres e lembretes.", tecnologias: ["Next.js", "PostgreSQL"], cor: "from-sky-400 to-indigo-600", href: "/modelos/barbearia" },
+    { nome: "Controle financeiro", segmento: "Finanças", descricao: "Painel de receitas e despesas com gráficos.", tecnologias: ["React", "Node.js"], cor: "from-lime-400 to-green-600", href: "/modelos/financas" },
+    { nome: "Lista de tarefas da equipe", segmento: "Produtividade", descricao: "Quadro de tarefas em colunas com arrastar e soltar.", tecnologias: ["React Native", "TypeScript"], cor: "from-yellow-300 to-orange-500", href: "/modelos/tarefas" },
   ],
 };
 
