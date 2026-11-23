@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <p aria-hidden className="font-display mt-12 select-none whitespace-nowrap text-center text-[22vw] font-bold leading-[0.75] tracking-[-0.06em] text-linha">
+      <p aria-hidden className="pointer-events-none font-display mt-12 select-none whitespace-nowrap text-center text-[22vw] font-bold leading-[0.75] tracking-[-0.06em] text-linha">
         serpa<span className="text-brasa">.</span>dev
       </p>
       <div className="rotulo mx-auto flex max-w-[1400px] justify-between px-5 py-6 text-cinza md:px-8">
