@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { useRef, useState } from "react";
 import TextoRevelado from "./fx/TextoRevelado";
-import PreviaAoVivo from "./PreviaAoVivo";
+import Previa from "./Previa";
 import { modelos, type Categoria } from "@/data/conteudo";
 import RotuloSecao from "./RotuloSecao";
 
@@ -34,7 +34,7 @@ export default function Modelos() {
               className="font-display text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[0.95] tracking-tight"
               linhas={[{ texto: "Modelos que" }, { texto: "funcionam de verdade." }]}
             />
-            <p className="mt-6 max-w-xl text-papel/65">As prévias abaixo são as páginas reais rodando. Abra, clique, teste no celular. Qualquer uma pode virar ponto de partida para o seu projeto.</p>
+            <p className="mt-6 max-w-xl text-papel/65">Cada modelo abre uma página real funcionando. Abra, clique, teste no celular. Qualquer uma pode virar ponto de partida para o seu projeto.</p>
           </div>
         </div>
 
@@ -72,7 +72,7 @@ export default function Modelos() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -60 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-6 [scrollbar-width:none] md:px-8 lg:px-[max(2rem,calc((100vw-1400px)/2+2rem))]"
+          className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-6 [scrollbar-width:none] md:px-8 lg:px-[max(2rem,calc((100vw-1400px)/2+2rem))] scroll-px-5 md:scroll-px-8 lg:scroll-px-[max(2rem,calc((100vw-1400px)/2+2rem))]"
         >
           {modelos[ativa].map((m, i) => (
             <article
@@ -86,7 +86,7 @@ export default function Modelos() {
                   <div className="flex gap-1">{[0, 1, 2].map((k) => <span key={k} className="h-2 w-2 rounded-full bg-linha" />)}</div>
                   <span className="truncate font-mono text-[11px] text-cinza">serpa.dev{m.href}</span>
                 </div>
-                {m.href && <PreviaAoVivo src={m.href} titulo={m.nome} />}
+                {m.href && <Previa src={m.href} titulo={m.nome} />}
               </Link>
               <div className="mt-5 flex items-start justify-between gap-4">
                 <div>
