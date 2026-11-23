@@ -31,19 +31,28 @@ export type Modelo = {
 
 export const modelos: Record<Categoria, Modelo[]> = {
   "Landing Pages": [
-    { nome: "Lançamento de curso", segmento: "Educação", descricao: "Página de vendas com contagem regressiva, depoimentos e checkout.", tecnologias: ["Next.js", "Tailwind"], cor: "from-violet-500 to-fuchsia-500", href: "/modelos/curso" },
-    { nome: "Clínica estética", segmento: "Saúde", descricao: "Captação de agendamentos direto pelo WhatsApp.", tecnologias: ["HTML", "CSS", "JavaScript"], cor: "from-rose-400 to-orange-300", href: "/modelos/clinica" },
-    { nome: "App de delivery", segmento: "Startup", descricao: "Apresentação de app com chamada para download nas lojas.", tecnologias: ["React", "Tailwind"], cor: "from-emerald-400 to-cyan-500", href: "/modelos/delivery" },
+    { nome: "Lançamento de curso", segmento: "Educação", descricao: "Página de vendas com aula de amostra, grade de módulos e oferta com contagem regressiva.", tecnologias: ["Next.js", "Tailwind"], cor: "from-violet-500 to-fuchsia-500", href: "/modelos/curso" },
+    { nome: "Clínica estética", segmento: "Saúde e beleza", descricao: "Visual elegante com indicação de tratamento pela queixa e agendamento pelo WhatsApp.", tecnologias: ["HTML", "CSS", "JavaScript"], cor: "from-rose-400 to-orange-300", href: "/modelos/clinica" },
+    { nome: "App de delivery", segmento: "Startup", descricao: "Apresentação de app com celular animado, busca por CEP e cupom.", tecnologias: ["React", "Tailwind"], cor: "from-emerald-400 to-cyan-500", href: "/modelos/delivery" },
+    { nome: "Academia", segmento: "Fitness", descricao: "Grade de aulas por dia, planos e calculadora de IMC.", tecnologias: ["Next.js", "Tailwind"], cor: "from-lime-300 to-lime-500", href: "/modelos/academia" },
+    { nome: "Lançamento imobiliário", segmento: "Imóveis", descricao: "Plantas interativas e simulador de financiamento.", tecnologias: ["React", "TypeScript"], cor: "from-emerald-700 to-stone-400", href: "/modelos/imobiliario" },
+    { nome: "Evento de tecnologia", segmento: "Eventos", descricao: "Palestrantes, agenda por dia e venda de ingressos por lote.", tecnologias: ["Next.js", "Motion"], cor: "from-pink-500 to-violet-600", href: "/modelos/evento" },
   ],
   Sites: [
     { nome: "Escritório de advocacia", segmento: "Jurídico", descricao: "Site institucional com áreas de atuação, equipe e blog.", tecnologias: ["Next.js", "TypeScript"], cor: "from-slate-500 to-slate-800", href: "/modelos/advocacia" },
     { nome: "Restaurante", segmento: "Gastronomia", descricao: "Cardápio online, reservas e localização.", tecnologias: ["PHP", "MySQL"], cor: "from-amber-400 to-red-500", href: "/modelos/restaurante" },
-    { nome: "Portfólio de fotógrafo", segmento: "Criativo", descricao: "Galeria de trabalhos com páginas por ensaio.", tecnologias: ["React", "Vite"], cor: "from-zinc-400 to-zinc-700", href: "/modelos/fotografo" },
+    { nome: "Portfólio de fotógrafo", segmento: "Criativo", descricao: "Galeria com filtro por categoria e visualização em tela cheia.", tecnologias: ["React", "Vite"], cor: "from-zinc-400 to-zinc-700", href: "/modelos/fotografo" },
+    { nome: "Escola infantil", segmento: "Educação", descricao: "Turmas por idade, rotina do dia e agendamento de visita.", tecnologias: ["HTML", "CSS", "JavaScript"], cor: "from-yellow-300 to-pink-400", href: "/modelos/escola" },
+    { nome: "Oficina mecânica", segmento: "Automotivo", descricao: "Acompanhamento pela placa e orçamento por serviço.", tecnologias: ["PHP", "MySQL"], cor: "from-zinc-700 to-yellow-400", href: "/modelos/oficina" },
+    { nome: "Pet shop", segmento: "Pets", descricao: "Banho e tosa por porte do pet e loja com carrinho.", tecnologias: ["Next.js", "Tailwind"], cor: "from-teal-400 to-orange-400", href: "/modelos/petshop" },
   ],
   Apps: [
     { nome: "Agenda para barbearia", segmento: "Serviços", descricao: "Agendamento online com horários livres e lembretes.", tecnologias: ["Next.js", "PostgreSQL"], cor: "from-sky-400 to-indigo-600", href: "/modelos/barbearia" },
     { nome: "Controle financeiro", segmento: "Finanças", descricao: "Painel de receitas e despesas com gráficos.", tecnologias: ["React", "Node.js"], cor: "from-lime-400 to-green-600", href: "/modelos/financas" },
     { nome: "Lista de tarefas da equipe", segmento: "Produtividade", descricao: "Quadro de tarefas em colunas com arrastar e soltar.", tecnologias: ["React Native", "TypeScript"], cor: "from-yellow-300 to-orange-500", href: "/modelos/tarefas" },
+    { nome: "Cardápio digital", segmento: "Restaurantes", descricao: "Pedido pelo QR Code da mesa com sacola e status do preparo.", tecnologias: ["React", "Node.js"], cor: "from-amber-400 to-neutral-800", href: "/modelos/cardapio" },
+    { nome: "Controle de estoque", segmento: "Comércio", descricao: "Entradas, saídas, alertas de reposição e histórico.", tecnologias: ["Next.js", "PostgreSQL"], cor: "from-indigo-400 to-slate-500", href: "/modelos/estoque" },
+    { nome: "Rastreador de hábitos", segmento: "Bem-estar", descricao: "Metas diárias, sequência de dias e estatísticas.", tecnologias: ["React Native", "TypeScript"], cor: "from-pink-400 to-purple-700", href: "/modelos/habitos" },
   ],
 };
 

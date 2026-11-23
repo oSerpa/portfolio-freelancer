@@ -11,6 +11,15 @@ export const demos: Demo[] = [
   { slug: "barbearia", marca: "Navalha Agenda" },
   { slug: "financas", marca: "Bolso" },
   { slug: "tarefas", marca: "Quadro" },
+  { slug: "academia", marca: "Pulso Fit" },
+  { slug: "imobiliario", marca: "Aurora Residencial" },
+  { slug: "evento", marca: "Front Summit" },
+  { slug: "escola", marca: "Escola Ciranda" },
+  { slug: "oficina", marca: "Torque Auto Center" },
+  { slug: "petshop", marca: "Patas&Cia" },
+  { slug: "cardapio", marca: "Chapa Quente" },
+  { slug: "estoque", marca: "Estoca" },
+  { slug: "habitos", marca: "Ritmo" },
 ];
 
 export function buscarDemo(slug: string) {

@@ -12,6 +12,16 @@ import Fotografo from "@/components/demos/sites/Fotografo";
 import AppBarbearia from "@/components/demos/AppBarbearia";
 import AppFinancas from "@/components/demos/AppFinancas";
 import AppTarefas from "@/components/demos/AppTarefas";
+import Academia from "@/components/demos/landing/Academia";
+import Imobiliario from "@/components/demos/landing/Imobiliario";
+import Evento from "@/components/demos/landing/Evento";
+import Escola from "@/components/demos/sites/Escola";
+import Oficina from "@/components/demos/sites/Oficina";
+import PetShop from "@/components/demos/sites/PetShop";
+import AppCardapio from "@/components/demos/AppCardapio";
+import AppEstoque from "@/components/demos/AppEstoque";
+import AppHabitos from "@/components/demos/AppHabitos";
+import SoNoNavegador from "@/components/demos/SoNoNavegador";
 
 // Fontes extras só das demos, para cada modelo ter personalidade própria.
 const serif = Playfair_Display({ variable: "--f-serif", subsets: ["latin"] });
@@ -39,7 +49,19 @@ const paginas: Record<string, React.ComponentType> = {
   barbearia: AppBarbearia,
   financas: AppFinancas,
   tarefas: AppTarefas,
+  academia: Academia,
+  imobiliario: Imobiliario,
+  evento: Evento,
+  escola: Escola,
+  oficina: Oficina,
+  petshop: PetShop,
+  cardapio: AppCardapio,
+  estoque: AppEstoque,
+  habitos: AppHabitos,
 };
+
+// Apps dependem da data de hoje e de dados salvos no navegador, então só renderizam no cliente.
+const apps = new Set(["barbearia", "financas", "tarefas", "cardapio", "estoque", "habitos"]);
 
 export default async function PaginaDemo({ params }: Props) {
   const { slug } = await params;
@@ -50,7 +72,7 @@ export default async function PaginaDemo({ params }: Props) {
   return (
     <div className={`${serif.variable} ${grotesk.variable} ${redonda.variable} min-h-screen`}>
       <BarraDemo nome={d.marca} />
-      <Pagina />
+      {apps.has(slug) ? <SoNoNavegador><Pagina /></SoNoNavegador> : <Pagina />}
     </div>
   );
 }
