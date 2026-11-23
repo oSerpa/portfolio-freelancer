@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Playfair_Display, Space_Grotesk, Outfit } from "next/font/google";
 import { demos, buscarDemo } from "@/data/demos";
 import BarraDemo from "@/components/demos/BarraDemo";
-import LandingDemo from "@/components/demos/LandingDemo";
-import SiteDemo from "@/components/demos/SiteDemo";
+import Curso from "@/components/demos/landing/Curso";
+import Clinica from "@/components/demos/landing/Clinica";
+import Delivery from "@/components/demos/landing/Delivery";
+import Advocacia from "@/components/demos/sites/Advocacia";
+import Restaurante from "@/components/demos/sites/Restaurante";
+import Fotografo from "@/components/demos/sites/Fotografo";
 import AppBarbearia from "@/components/demos/AppBarbearia";
 import AppFinancas from "@/components/demos/AppFinancas";
 import AppTarefas from "@/components/demos/AppTarefas";
-import { temaEstilo } from "@/components/demos/temaEstilo";
+
+// Fontes extras só das demos, para cada modelo ter personalidade própria.
+const serif = Playfair_Display({ variable: "--f-serif", subsets: ["latin"] });
+const grotesk = Space_Grotesk({ variable: "--f-grotesk", subsets: ["latin"] });
+const redonda = Outfit({ variable: "--f-redonda", subsets: ["latin"] });
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -20,24 +29,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title: d ? `${d.marca} | Modelo serpa.dev` : "Modelo não encontrado" };
 }
 
-const apps = { barbearia: AppBarbearia, financas: AppFinancas, tarefas: AppTarefas };
+const paginas: Record<string, React.ComponentType> = {
+  curso: Curso,
+  clinica: Clinica,
+  delivery: Delivery,
+  advocacia: Advocacia,
+  restaurante: Restaurante,
+  fotografo: Fotografo,
+  barbearia: AppBarbearia,
+  financas: AppFinancas,
+  tarefas: AppTarefas,
+};
 
 export default async function PaginaDemo({ params }: Props) {
-  const d = buscarDemo((await params).slug);
-  if (!d) notFound();
-
-  let conteudo: React.ReactNode;
-  if (d.tipo === "landing") conteudo = <LandingDemo d={d} />;
-  else if (d.tipo === "site") conteudo = <SiteDemo d={d} />;
-  else {
-    const App = apps[d.app];
-    conteudo = <App marca={d.marca} />;
-  }
+  const { slug } = await params;
+  const d = buscarDemo(slug);
+  const Pagina = paginas[slug];
+  if (!d || !Pagina) notFound();
 
   return (
-    <div style={temaEstilo(d.tema)} className="min-h-screen bg-[var(--bg)] text-[var(--tx)]">
+    <div className={`${serif.variable} ${grotesk.variable} ${redonda.variable} min-h-screen`}>
       <BarraDemo nome={d.marca} />
-      {conteudo}
+      <Pagina />
     </div>
   );
 }
