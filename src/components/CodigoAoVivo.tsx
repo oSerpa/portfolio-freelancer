@@ -93,9 +93,9 @@ export default function CodigoAoVivo() {
   let resto = chars;
   return (
     <div className="border border-linha bg-tinta-2/80 shadow-[0_30px_80px_-20px_rgba(0,0,0,.6)] backdrop-blur">
-      <div className="flex items-center justify-between border-b border-linha px-4 py-2.5">
+      <div className="flex items-center justify-between gap-4 border-b border-linha px-4 py-2.5">
         <div className="flex gap-1.5">{[0, 1, 2].map((i) => <span key={i} className="h-2.5 w-2.5 rounded-full bg-linha" />)}</div>
-        <div className="flex gap-4">
+        <div className="flex min-w-0 gap-4 overflow-x-auto whitespace-nowrap [scrollbar-width:none]">
           {exemplos.map((e, i) => (
             <button key={e.arquivo} onClick={() => { setAtual(i); setChars(0); }} className={`rotulo normal-case transition ${i === atual ? "text-papel" : "text-cinza/60 hover:text-cinza"}`}>{e.arquivo}</button>
           ))}

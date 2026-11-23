@@ -50,7 +50,7 @@ export default function Hero() {
           ]}
         />
 
-        <div className="mt-14 grid items-end gap-12 lg:grid-cols-[1fr_1.15fr]">
+        <div className="mt-14 grid items-end gap-12 [&>*]:min-w-0 lg:grid-cols-[1fr_1.15fr]">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }}>
             <p className="max-w-md text-lg leading-relaxed text-papel/70">{site.descricao}</p>
             <div className="mt-8 flex flex-wrap items-center gap-6">

@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, animate, useMotionValue, useTransform } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TextoRevelado from "./fx/TextoRevelado";
 import RotuloSecao from "./RotuloSecao";
 import Velocidade from "./lab/Velocidade";
@@ -13,16 +13,38 @@ type Aba = (typeof abas)[number];
 
 /* ---------- 1. Responsivo: arraste para mudar a largura e ver o layout se reorganizar ---------- */
 function Responsivo() {
-  const [largura, setLargura] = useState(100);
+  // A largura é virtual, em pixels (de celular a desktop). Quando a tela é menor que essa largura,
+  // a prévia é reduzida em escala, então no celular dá para ver o layout de desktop inteiro.
+  const [largura, setLargura] = useState(1200);
+  const area = useRef<HTMLDivElement>(null);
+  const pagina = useRef<HTMLDivElement>(null);
+  const [disponivel, setDisponivel] = useState(1200);
+  const [altura, setAltura] = useState(0);
+
+  useEffect(() => {
+    const ro = new ResizeObserver(() => {
+      if (area.current) setDisponivel(area.current.clientWidth);
+      if (pagina.current) setAltura(pagina.current.offsetHeight);
+    });
+    if (area.current) ro.observe(area.current);
+    if (pagina.current) ro.observe(pagina.current);
+    return () => ro.disconnect();
+  }, []);
+
+  const escala = Math.min(1, disponivel / largura);
+  const tipo = largura < 640 ? "celular" : largura < 1024 ? "tablet" : "desktop";
+
   return (
     <div>
       <div className="mb-4 flex items-center gap-4">
         <span className="rotulo text-cinza">Largura</span>
-        <input type="range" min={28} max={100} value={largura} onChange={(e) => setLargura(+e.target.value)} className="flex-1 accent-[var(--color-brasa)]" aria-label="Largura da prévia" />
-        <span className="rotulo w-16 text-right text-brasa">{largura < 45 ? "celular" : largura < 75 ? "tablet" : "desktop"}</span>
+        <input type="range" min={340} max={1200} step={10} value={largura} onChange={(e) => setLargura(+e.target.value)} className="min-w-0 flex-1 accent-[var(--color-brasa)]" aria-label="Largura da prévia" />
+        <span className="rotulo w-24 text-right text-brasa">{tipo} <span className="text-cinza">{largura}px</span></span>
       </div>
-      <div className="flex justify-center border border-dashed border-linha bg-tinta p-3">
-        <motion.div animate={{ width: `${largura}%` }} transition={{ type: "spring", stiffness: 200, damping: 30 }} className="@container overflow-hidden bg-papel text-tinta">
+      <div className="border border-dashed border-linha bg-tinta p-3">
+        <div ref={area} className="relative overflow-hidden" style={{ height: altura * escala }}>
+          <div className="absolute left-1/2 top-0 origin-top" style={{ width: largura, transform: `translateX(-50%) scale(${escala})` }}>
+            <div ref={pagina} className="@container w-full overflow-hidden bg-papel text-tinta">
           <div className="flex items-center justify-between border-b border-tinta/10 px-4 py-3">
             <span className="font-display font-bold">Aurora Café</span>
             <span className="hidden gap-4 text-xs @lg:flex"><span>Cardápio</span><span>Sobre</span><span>Contato</span></span>
@@ -41,7 +63,9 @@ function Responsivo() {
               <div key={c} className="border border-tinta/10 p-3 text-sm"><b>{c}</b><div className="text-tinta/50">a partir de R$ 9</div></div>
             ))}
           </div>
-        </motion.div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
